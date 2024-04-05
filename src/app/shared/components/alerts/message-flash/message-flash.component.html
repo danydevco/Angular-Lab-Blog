@@ -1,0 +1,15 @@
+<ng-container *ngIf="messageFlash.show">
+    <div class="position-absolute top-0 start-0 end-0 z-1 p-3 shadow" [ngClass]="messageFlash.bgColor">
+        <div class="d-flex align-items-center text-white justify-content-between">
+            <div class="d-flex align-items-center">
+                <!--<ion-icon name="{{ messageFlash.icon }}" class="me-2"></ion-icon>-->
+                <p class="m-0 fs-14">{{ messageFlash.message }}</p>
+            </div>
+            <div [ngClass]="messageFlash.textColor"
+                 *ngIf="messageFlash.closable"
+                 (click)="close()">
+               <!-- <ion-icon name="m-x-lg" class="me-2"></ion-icon>-->
+            </div>
+        </div>
+    </div>
+</ng-container>
