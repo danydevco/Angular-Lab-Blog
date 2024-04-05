@@ -6,7 +6,17 @@ import {Post} from "../interfaces/post";
 })
 export class PostService {
 
-    posts: Post[] = []
+    posts: Post[] = [
+        {
+            id: '1',
+            title: 'Post 1',
+            content: 'Content of post 1',
+            author: 'Author 1',
+            createdAt: '',
+            category: 'Category 1',
+            tags: ['tag1', 'tag2']
+        }
+    ]
 
     constructor() { }
 

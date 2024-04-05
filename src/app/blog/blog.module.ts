@@ -7,7 +7,8 @@ import {PostsComponent} from './pages/posts/posts.component';
 import {PostComponent} from './pages/post/post.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {NavbarBlogComponent} from './components/navbar-blog/navbar-blog.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import {SidebarComponent} from './components/sidebar/sidebar.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ],
     imports: [
         CommonModule,
-        BlogRoutingModule
+        BlogRoutingModule,
+        HttpClientModule
     ]
 })
 export class BlogModule {

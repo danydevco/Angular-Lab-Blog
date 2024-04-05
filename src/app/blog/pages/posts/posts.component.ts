@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {PostService} from "../../../core/services/post.service";
+import {Post} from "../../../core/interfaces/post";
 
 @Component({
   selector: 'app-posts',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class PostsComponent {
 
+    posts: Post[] = []
+
+    constructor(private postService: PostService) {
+        this.posts = this.postService.getAllPosts();
+    }
 }
