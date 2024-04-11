@@ -1,27 +1,18 @@
 import {Injectable} from '@angular/core';
 import {Post} from "../interfaces/post";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @Injectable({
     providedIn: 'root'
 })
 export class PostService {
 
-    posts: Post[] = [
-        {
-            id: '1',
-            title: 'Post 1',
-            content: 'Content of post 1',
-            author: 'Author 1',
-            createdAt: '',
-            category: 'Category 1',
-            tags: ['tag1', 'tag2']
-        }
-    ]
+    posts: Post[] = []
 
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
-    getAllPosts(): Post[] {
-        return this.posts;
+    getAllPosts() {
+        return this.http.get<Post[]>('https://movie.danydev.co/api/posts')
     }
 
     getPostById(id: string): Post | undefined {

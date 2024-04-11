@@ -10,6 +10,7 @@ import {Post} from "../../../core/interfaces/post";
 })
 export class PostComponent {
     post: Post | undefined = {} as Post
+
     constructor(private postService: PostService, private route: ActivatedRoute) {
         const id = this.route.snapshot.paramMap.get('id');
         if (id) {
