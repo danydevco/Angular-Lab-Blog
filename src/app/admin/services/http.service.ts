@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {MessageFlashService} from "../../shared/components/alerts/message-flash/message-flash.service";
 import {catchError, throwError} from "rxjs";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 import {ILoginResponse} from "../../core/interfaces/auth.interface";
 import {environment} from "../../../environments/environment";
 
@@ -23,7 +22,20 @@ export class HttpService {
 
         const endpoint = this.getEndPoint(path)
 
-        return this.http.get(endpoint, {headers}).pipe(
+        return this.http.get<T>(endpoint, {headers}).pipe(
+            catchError(
+                (error: HttpErrorResponse) => this.handleError(error)
+            )
+        )
+    }
+
+    post<T>(path: string, body: any) {
+
+        const headers = this.addHeader()
+
+        const endpoint = this.getEndPoint(path)
+
+        return this.http.post<T>(endpoint, body, {headers}).pipe(
             catchError(
                 (error: HttpErrorResponse) => this.handleError(error)
             )

@@ -10,14 +10,18 @@ import {Post} from "../../../core/interfaces/post";
 })
 export class PostsComponent {
 
+    posts: Post[] = []
+
     constructor(private http: HttpService) {
         this.init()
     }
 
     init(){
-        this.http.get<ApiResponse<Post>>('post')
+        this.http.get<Post[]>('post')
             .subscribe(response  => {
                 console.log(response)
+                this.posts = response
+                console.log(this.posts)
             })
     }
 

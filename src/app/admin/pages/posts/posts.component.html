@@ -13,14 +13,12 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Titulo</th>
-                <th scope="col">Opciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>random</td>
-                <td>data</td>
+            <tr *ngFor="let post of posts">
+                <td> {{ post.id }}</td>
+                <td> {{ post.title}}</td>
             </tr>
         </tbody>
     </table>
