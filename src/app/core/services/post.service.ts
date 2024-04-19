@@ -12,7 +12,7 @@ export class PostService {
     constructor(private http: HttpClient) { }
 
     getAllPosts() {
-        return this.http.get<Post[]>('https://movie.danydev.co/api/posts')
+        return this.http.get<Post[]>('https://iub.danydev.co/api/posts')
     }
 
     getPostById(id: string): Post | undefined {

@@ -32,11 +32,19 @@ export class LoginComponent implements OnInit {
         console.log(this.loginForm.value)
         if (this.loginForm.valid) {
             console.log(this.loginForm.value)
-            if (this.authService.login(this.loginForm.value.username, this.loginForm.value.password)) {
-                this.router.navigate(['admin', 'posts']).then()
-            } else {
-                this.messageFlashService.error({message: 'Usuario o contraseña incorrecto', show: true})
-            }
+            this.authService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe({
+                next: (response) => {
+                    if (response.successful) {
+                        localStorage.setItem('user', JSON.stringify(response.data));
+                        this.router.navigate(['admin', 'posts'])
+                    } else {
+                        this.messageFlashService.error({message: response.message, show: true})
+                    }
+                },
+                error: (error) => {
+                    this.messageFlashService.error({message: error.error.message, show: true})
+                }
+            })
         }
     }
 
