@@ -8,6 +8,7 @@ import { PostComponent } from './pages/post/post.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -24,7 +25,9 @@ import { CreatePostComponent } from './pages/create-post/create-post.component';
     ],
     imports: [
         CommonModule,
-        AdminRoutingModule
+        AdminRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
     ]
 })
 export class AdminModule { }
