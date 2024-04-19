@@ -1,1 +1,18 @@
-<p>create-post works!</p>
+<div class="m-4">
+    <h1>Nueva entrada</h1>
+    <form>
+        <div class="mb-3">
+            <label for="title" class="form-label">Titulo de la entradas</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Titulo">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Descripción de la entradas</label>
+            <textarea class="form-control" id="content" name="content" placeholder="Descripción"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="published_at" class="form-label">Fecha de publicación</label>
+            <input type="date" class="form-control" id="published_at" name="published_at" placeholder="Fecha">
+        </div>
+        <button type="submit" class="btn btn-primary">Crear entrada</button>
+    </form>
+</div>
