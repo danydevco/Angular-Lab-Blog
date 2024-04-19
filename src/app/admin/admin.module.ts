@@ -7,6 +7,7 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { PostComponent } from './pages/post/post.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CreatePostComponent } from './pages/create-post/create-post.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
         PostsComponent,
         PostComponent,
         NavbarComponent,
-        SidebarComponent
+        SidebarComponent,
+        CreatePostComponent
     ],
     exports: [
         NavbarComponent

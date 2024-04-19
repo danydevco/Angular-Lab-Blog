@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {LayoutComponent} from "./layout/layout.component";
 import {PostsComponent} from "./pages/posts/posts.component";
 import {PostComponent} from "./pages/post/post.component";
+import {CreatePostComponent} from "./pages/create-post/create-post.component";
 
 const routes: Routes = [
     {
@@ -16,6 +17,10 @@ const routes: Routes = [
             {
                 path: 'post',
                 component: PostComponent
+            },
+            {
+                path: 'post/create',
+                component: CreatePostComponent
             },
             {
                 path: '',
