@@ -4,19 +4,26 @@ import {MessageFlashService} from "../../shared/components/alerts/message-flash/
 import {catchError, throwError} from "rxjs";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {ILoginResponse} from "../../core/interfaces/auth.interface";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class HttpService {
-
+    api = environment.api
     constructor(private http: HttpClient, private messageFlashService: MessageFlashService) { }
 
-    get<T>(url: string) {
+    getEndPoint(path: string){
+        return `${this.api}/${path}`
+    }
+
+    get<T>(path: string) {
 
         const headers = this.addHeader()
 
-        return this.http.get(url, {headers}).pipe(
+        const endpoint = this.getEndPoint(path)
+
+        return this.http.get(endpoint, {headers}).pipe(
             catchError(
                 (error: HttpErrorResponse) => this.handleError(error)
             )
