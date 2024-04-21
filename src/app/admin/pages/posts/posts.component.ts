@@ -19,9 +19,7 @@ export class PostsComponent {
     init(){
         this.http.get<Post[]>('post')
             .subscribe(response  => {
-                console.log(response)
                 this.posts = response
-                console.log(this.posts)
             })
     }
 
