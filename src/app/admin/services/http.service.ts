@@ -42,6 +42,32 @@ export class HttpService {
         )
     }
 
+    put<T>(path: string, body: any) {
+
+        const headers = this.addHeader()
+
+        const endpoint = this.getEndPoint(path)
+
+        return this.http.put<T>(endpoint, body, {headers}).pipe(
+            catchError(
+                (error: HttpErrorResponse) => this.handleError(error)
+            )
+        )
+    }
+
+    delete<T>(path: string) {
+
+        const headers = this.addHeader()
+
+        const endpoint = this.getEndPoint(path)
+
+        return this.http.delete<T>(endpoint, {headers}).pipe(
+            catchError(
+                (error: HttpErrorResponse) => this.handleError(error)
+            )
+        )
+    }
+
     getUser(): ILoginResponse | null {
         const user: string | null = localStorage.getItem('user')
         return user ? JSON.parse(user) : null
